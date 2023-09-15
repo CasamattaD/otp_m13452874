@@ -5,8 +5,6 @@ using namespace std;
 
 int main(int argc, char *argv[]){
 
-    int userChoice;
-    bool exitVal = true;
     string func = argv[1];
     OneTimePad otp;
     
