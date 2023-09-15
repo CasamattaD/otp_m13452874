@@ -89,8 +89,8 @@ void OneTimePad::Decrypt()
 {
     fstream keyFile("./data/key.txt");
     fstream cipherFile("./data/ciphertext.txt");
-    ofstream plainFile;
-    plainFile.open("./data/plaintext.txt");
+    ofstream resultFile;
+    resultFile.open("./data/result.txt");
     getline(keyFile, key);
     getline(cipherFile, cipherText);
 
@@ -104,8 +104,8 @@ void OneTimePad::Decrypt()
     string plainTemp = XOR(cipherBit, key);
     plainText = BitToChar(plainTemp);
 
-    plainFile << plainText;
-    plainFile.close();
+    resultFile << plainText;
+    resultFile.close();
     cout << "Plaintext: " << plainText << endl;
 }
 
