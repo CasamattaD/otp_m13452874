@@ -6,6 +6,8 @@
 #include <string.h>
 
 using namespace std;
+
+// Convert a char type into it's 8 bit binary string value
 string CharToBit(string textTemp){
     string bitTemp;
 
@@ -18,6 +20,7 @@ string CharToBit(string textTemp){
     return bitTemp;
 }
 
+// Convert a inary string into its char values with groups of 8 bit binaries.
 string BitToChar(string bitTemp){
     string textTemp;
     string bitGroup;
@@ -31,6 +34,7 @@ string BitToChar(string bitTemp){
     return textTemp;
 }
 
+// Perform XOR function on binary strings and return its result
 string XOR(string cipherTemp, string key){
     string xorTemp;
     for (int i = 0; i < key.length(); i++)
@@ -47,13 +51,16 @@ string XOR(string cipherTemp, string key){
     
 }
 
+// Generate new key with specified length input by user
 void OneTimePad::NewKeyGen(int newKeyLength)
 {
+    // Generate new key
     for (int i = 0; i < newKeyLength; i++)
     {
         newKey += to_string(((int)rand() % 2));
     }
     
+    // Open files and write results to files
     ofstream outFile;
     outFile.open("./data/newkey.txt");
     outFile << newKey;
@@ -61,8 +68,10 @@ void OneTimePad::NewKeyGen(int newKeyLength)
     cout << "Secret Key:\n" + newKey << endl;
 }
 
+// Encrypt a plaintext
 void OneTimePad::Encrpyt()
 {
+    // Open files
     fstream keyFile("./data/key.txt");
     fstream plainFile("./data/plaintext.txt");
     ofstream cipherFile;
@@ -76,17 +85,21 @@ void OneTimePad::Encrpyt()
         return;
     }
     
+    // Perform cipher operations
     string plainBit = CharToBit(plainText);
     string cipherTemp = XOR(plainBit, key);
     cipherText = BitToChar(cipherTemp);
 
+    // Print values to terminal and file
     cipherFile << cipherText;
     cipherFile.close();
     cout << "Ciphertext: " << cipherText << endl;
 }
 
+// Decrypt function to find plaintext value of a ciphertext
 void OneTimePad::Decrypt()
 {
+    // Open files
     fstream keyFile("./data/key.txt");
     fstream cipherFile("./data/ciphertext.txt");
     ofstream resultFile;
@@ -100,10 +113,12 @@ void OneTimePad::Decrypt()
         return;
     }
 
+    // Perform cipher operations
     string cipherBit = CharToBit(cipherText);
     string plainTemp = XOR(cipherBit, key);
     plainText = BitToChar(plainTemp);
 
+    // Write results to terminal and files
     resultFile << plainText;
     resultFile.close();
     cout << "Plaintext: " << plainText << endl;

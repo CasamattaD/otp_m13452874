@@ -5,6 +5,7 @@ using namespace std;
 
 int main(int argc, char *argv[]){
 
+
     string func = argv[1];
     OneTimePad otp;
     
@@ -25,11 +26,13 @@ int main(int argc, char *argv[]){
         }
     }
 
+    // Calls encrypt Function
     if (func == "enc")
     {
         otp.Encrpyt();
     }
 
+    // Calls Decrypt Function
     if (func == "dec")
     {
         otp.Decrypt();
