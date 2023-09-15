@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/casamade/otp_m13452874/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/runMain.dir/main.cpp.o -c /home/casamade/otp_m13452874/main.cpp",
+  "file": "/home/casamade/otp_m13452874/main.cpp"
+},
+{
+  "directory": "/home/casamade/otp_m13452874/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/applibrary.dir/OneTimePad.cpp.o -c /home/casamade/otp_m13452874/OneTimePad.cpp",
+  "file": "/home/casamade/otp_m13452874/OneTimePad.cpp"
+}
+]

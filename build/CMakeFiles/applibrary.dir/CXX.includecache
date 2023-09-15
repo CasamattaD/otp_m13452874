@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/casamade/otp_m13452874/OneTimePad.cpp
+OneTimePad.h
+/home/casamade/otp_m13452874/OneTimePad.h
+fstream
+-
+iostream
+-
+bits/stdc++.h
+-
+bitset
+-
+string.h
+-
+
+/home/casamade/otp_m13452874/OneTimePad.h
+string
+-
+
